@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Yossef_Hawila.Enums;
 using Yossef_Hawila.Models;
 
 namespace Yossef_Hawila.Controllers
@@ -8,7 +9,7 @@ namespace Yossef_Hawila.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View(new PageLanguageBagModel());
         }
 
         public IActionResult Privacy()

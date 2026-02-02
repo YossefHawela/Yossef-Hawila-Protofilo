@@ -1,8 +1,32 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@model PageLanguageBagModel
+@{
+    ViewData["Title"] = $"Yossef Hawila";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<p id="CLanguage">
+</p>
+
+<div id="LanguageSelectorDiv" class="LanguageSelectorDiv">
+    <a id="ArabicLanguage" class="LanguageSelector"  onclick="SelectLanguage('Ar')">
+        Arabic
+    </a>
+    <a id="EnglishLanguage" class="LanguageSelector" onclick="SelectLanguage('En')" >
+        English
+    </a>
 </div>
+
+<script>
+
+    const PortfolioModels = @Html.Raw(Json.Serialize(Model.PortfolioModels));
+    
+
+    if(hasCookie("lang"))
+    {
+        SelectLanguage(getCookie("lang"));
+    }else
+    {
+        SelectLanguage("@Model.Language");
+    }
+
+</script>

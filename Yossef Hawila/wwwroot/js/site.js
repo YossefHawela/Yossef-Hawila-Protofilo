@@ -1,4 +1,18 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function getCookie(name) {
+    return document.cookie
+        .split('; ')
+        .find(row => row.startsWith(name + '='))
+        ?.split('=')[1];
+}
 
-// Write your JavaScript code.
+function hasCookie(name) {
+    return document.cookie
+        .split('; ')
+        .some(c => c.startsWith(name + '='));
+}
+function SelectLanguage(Lang) {
+    document.getElementById("CLanguage").innerHTML = PortfolioModels[Lang].summary;
+
+
+    document.cookie = "lang=" + Lang + "; path=/; max-age=31536000";
+}
