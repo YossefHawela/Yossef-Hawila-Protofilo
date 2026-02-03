@@ -4,29 +4,97 @@
     ViewData["Title"] = $"Yossef Hawila";
 }
 
-<p id="CLanguage">
-</p>
+@* Can be replaced with any gbs location service or a seperate settings page*@
 
-<div id="LanguageSelectorDiv" class="LanguageSelectorDiv">
-    <a id="ArabicLanguage" class="LanguageSelector"  onclick="SelectLanguage('Ar')">
-        Arabic
-    </a>
-    <a id="EnglishLanguage" class="LanguageSelector" onclick="SelectLanguage('En')" >
-        English
-    </a>
+<div id="ContentDiv" dir="rtl">
+    <div id="LanguageSelectorDiv" class="LanguageSelectorDiv">
+        <a id="ArabicLanguage" class="LanguageSelector"  onclick="SelectLanguage('Ar')">
+            Arabic
+        </a>
+        <a id="EnglishLanguage" class="LanguageSelector" onclick="SelectLanguage('En')" >
+            English
+        </a>
+    </div>
+
+    <div id="HeaderDiv" class="HeaderDiv">
+        <h1 id="HeaderH1" class="HeaderH1">
+        
+        </h1>
+    </div>
+    <div id="upperMiddleDiv" class="upperMiddleDiv">
+        <div id="SummaryDiv" class="SummaryDiv">
+            <p id="SummaryParagraph" class="SummaryParagraph">
+
+            </p>
+        </div>
+       <div id="EducationDiv">
+           <p id="EducationParagraph"></p>
+       </div>
+    </div>
+    <div id="LowerMiddleDiv">
+        <div id="TechnicalSkillsDiv">
+            <ul id="TechnicalSkillsUl">
+                <li id="ProgramingLanguagesLi">
+
+                </li>
+                <li id="FrameWorkATechnologiesLi">
+
+                </li>
+                <li id="OtherTechhnologiesLi">
+
+                </li>
+                <li id="Tools_IDEsLi">
+
+                </li>
+                <li id="DataBasesLi">
+
+                </li>
+                <li id="OSsLi">
+
+                </li>
+                <li id="OtherToolsLi">
+
+                </li>
+                <li id="LanguagesLi">
+
+                </li>
+            </ul>
+        </div>
+        <div id="ContactInfoDiv">
+            <ul id="ContactInfoUl">
+                <li id="LocationLi">
+
+                </li>
+                <li id="PhoneLi">
+
+                </li>
+                <li id="EmailLi">
+
+                </li>
+                <li id="GitHubLi">
+
+                </li>
+                <li id="LinkedInLi">
+
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <script>
 
     const PortfolioModels = @Html.Raw(Json.Serialize(Model.PortfolioModels));
-    
+    const SettingsModels = @Html.Raw(Json.Serialize(Model.SettingsModels));
+    const Directions = @Html.Raw(Json.Serialize(Enum.GetNames(typeof(Yossef_Hawila.Enums.Directions))));
 
+    console.log(Directions);
     if(hasCookie("lang"))
     {
         SelectLanguage(getCookie("lang"));
     }else
     {
-        SelectLanguage("@Model.Language");
+        SelectLanguage("En");
     }
 
 </script>

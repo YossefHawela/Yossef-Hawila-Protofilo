@@ -5,19 +5,24 @@ using Yossef_Hawila.Interface;
 namespace Yossef_Hawila.Models
 {
 
-    public class PageLanguageBagModel : IMultiLanguage,IMultiLanguageBag<PortfolioModel>
+    public class PageLanguageBagModel : IMultiLanguage,IMultiLanguageBag<PortfolioModel>,IMultiLanguageBag<LanguageSettingsModel>
     {
-        public Languages Language { get;set; } = Languages.En;
-
         Dictionary<Languages, PortfolioModel> IMultiLanguageBag<PortfolioModel>.Model { get; set; } = new ()
         {
             {Languages.Ar , AvailableLanguages.ArabicPortfolioModel},
             {Languages.En , AvailableLanguages.EnglishPortfolioModel }
         };
 
-        public Dictionary<Languages, PortfolioModel> PortfolioModels => ((IMultiLanguageBag<PortfolioModel>)this).Model;
+        Dictionary<Languages, LanguageSettingsModel> IMultiLanguageBag<LanguageSettingsModel>.Model { get; set; } = new()
+        {
+            {Languages.Ar , AvailableLanguages.ArabicSettingsModel},
+            {Languages.En , AvailableLanguages.EnglishSettingsModel }
+        };
+
+
+        public Dictionary<Languages, PortfolioModel> PortfolioModels { get => ((IMultiLanguageBag<PortfolioModel>)this).Model; }
+        public Dictionary<Languages, LanguageSettingsModel> SettingsModels { get => ((IMultiLanguageBag<LanguageSettingsModel>)this).Model; }
 
 
     }
 }
-

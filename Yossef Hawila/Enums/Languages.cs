@@ -2,7 +2,7 @@
 {
     public enum Languages
     {
-        En = 0,
-        Ar = 1,
+        En,
+        Ar,
     }
 }

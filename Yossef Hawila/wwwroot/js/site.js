@@ -11,8 +11,12 @@ function hasCookie(name) {
         .some(c => c.startsWith(name + '='));
 }
 function SelectLanguage(Lang) {
-    document.getElementById("CLanguage").innerHTML = PortfolioModels[Lang].summary;
 
+    console.log(SettingsModels);
+
+    document.getElementById("ContentDiv").dir = Directions[SettingsModels[Lang].direction];
+    document.getElementById("HeaderH1").innerHTML = PortfolioModels[Lang].name;
+    document.getElementById("SummaryParagraph").innerHTML = PortfolioModels[Lang].summary;
 
     document.cookie = "lang=" + Lang + "; path=/; max-age=31536000";
 }
